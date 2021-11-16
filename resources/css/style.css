@@ -1,11 +1,31 @@
 h1{
-    @apply text-4xl
+    @apply text-3xl md:text-4xl 
 }
 
 h2{
-    @apply text-3xl
+    @apply text-lg md:text-3xl
 }
 
 h3{
-    @apply text-xl
+    @apply text-lg md:text-xl
+}
+
+.foto{
+    width: 35rem;
+    top: 7%;
+    left: -43%;
+    border-radius: 30px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.btn{
+    @apply p-3 rounded-lg text-white font-bold text-center;
+}
+
+.btn-fill{
+    @apply bg-yellow-500;
+}
+
+.btn-border{
+    @apply border-2 border-yellow-500;
 }

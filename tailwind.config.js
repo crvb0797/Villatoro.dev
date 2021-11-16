@@ -16,7 +16,7 @@ module.exports = {
             },
             colors:{
                 'metalic-100': '#D6D6D6',
-                'metalic-200': '#A2A2A2',
+                'metalic-200': '#2F2F2F',
                 'metalic-900':'#2A2A2A',
                 'yellow-500': '#F5AF31',
                 skyblue: '#3FAFDD',

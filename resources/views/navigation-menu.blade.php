@@ -30,7 +30,7 @@ $nav_links = [
 @endphp
 {{-- /Links de nvegación --}}
 
-<nav x-data="{ open: false }" class="bg-transparent text-white">
+<nav x-data="{ open: false }" class="bg-transparent text-white z-50">
     <!-- Primary Navigation Menu -->
     <div class="container mx-auto">
         <div class="flex justify-between h-20">
@@ -163,7 +163,7 @@ $nav_links = [
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                    this.closest('form').submit();">
+                                                                                                                                                                                        this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -243,7 +243,7 @@ $nav_links = [
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                                                                                    this.closest('form').submit();">
+                                                                                                                                                                        this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-jet-responsive-nav-link>
                     </form>
