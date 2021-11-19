@@ -18,6 +18,29 @@ h3{
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
 }
 
+.line_1{
+    right: 0;
+    top: -124px;
+    width: 122px;
+}
+
+.line_2{
+    left: 0;
+    bottom: 0px;
+    width: 122px;
+}
+
+@media (max-width: 768px) { 
+    .line_1{
+        top: -38px;
+        width: 64px;
+    }
+
+    .line_2{
+        width: 64px;
+    }
+ }
+
 .btn{
     @apply p-3 rounded-lg text-white font-bold text-center;
 }
@@ -28,4 +51,8 @@ h3{
 
 .btn-border{
     @apply border-2 border-yellow-500;
+}
+
+.card-service{
+    @apply p-6 md:p-14 rounded-lg text-white h-96 flex flex-col justify-center relative bg-no-repeat bg-cover;
 }

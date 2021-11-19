@@ -4,26 +4,26 @@ $nav_links = [
     [
         'name' => 'Inicio',
         'url' => route('home'),
-        'active' => request()->routeIs('home'),
+        'active' => /* request()->routeIs('home') */ false,
     ],
     [
         'name' => 'Sobre mí',
-        'url' => '#',
-        'active' => Request::url() === 'https://villatoro.test/dashboard#',
+        'url' => '#about',
+        'active' => Request::url() === 'https://villatoro.test/#about',
     ],
     [
         'name' => 'Servicios',
-        'url' => '#',
+        'url' => '#service',
         'active' => false,
     ],
     [
         'name' => 'Proyectos',
-        'url' => '#',
+        'url' => '#prject',
         'active' => false,
     ],
     [
         'name' => 'Contáctame',
-        'url' => '#',
+        'url' => '#contact',
         'active' => false,
     ],
 ];
@@ -163,7 +163,7 @@ $nav_links = [
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                        this.closest('form').submit();">
+                                                                                                                                                                                                    this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -243,7 +243,7 @@ $nav_links = [
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                                                                                        this.closest('form').submit();">
+                                                                                                                                                                                    this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-jet-responsive-nav-link>
                     </form>
