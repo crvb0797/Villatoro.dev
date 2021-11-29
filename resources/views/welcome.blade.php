@@ -1,6 +1,6 @@
-<x-app-layout>
+<x-app-layout class="overflow-hidden">
     {{-- HEADER --}}
-    <section class="header md:h-screen grid grid-cols-1 md:grid-cols-3 mb-10 md:mb-0">
+    <section id="hero" class="header md:h-screen grid grid-cols-1 md:grid-cols-3 mb-10 md:mb-0">
         {{-- presentación --}}
         <div class="md:col-span-2">
             <div
@@ -36,7 +36,7 @@
     {{-- /HEADER --}}
 
     {{-- SOBRE MÍ --}}
-    <section id="about" class="grid grid-cols-1 md:grid-cols-2 bg-metalic-200 py-12 shadow-md">
+    <section id="about" id="about" class="grid grid-cols-1 md:grid-cols-2 bg-metalic-200 py-12 shadow-md">
         {{-- foto --}}
         <div class="relative flex justify-center items-center mb-4 md:mb-0">
             <img class="absolute z-0 hidden md:block" src="{{ asset('./img/lines.svg') }}" alt="lineas de decoración">
@@ -66,7 +66,7 @@
     {{-- /SOBRE MÍ --}}
 
     {{-- SERVICIOS --}}
-    <section id="service" class="container mx-auto py-12">
+    <section id="services" id="services" class="container mx-auto py-12">
         <h1 class="text-metalic-100 font-extrabold mb-12 px-4">Servicios</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-9 px-4">
             {{-- DISEÑO WEB --}}
@@ -117,7 +117,7 @@
     {{-- /SERVICIOS --}}
 
     {{-- PROYECTOS --}}
-    <section id="prject" class="bg-metalic-200 py-12 shadow-md text-metalic-100">
+    <section id="project" id="project" class="bg-metalic-200 py-12 shadow-md text-metalic-100">
         <div class="container mx-auto space-y-4">
             <h1 class="font-bold px-4">Últimos proyectos</h1>
             <p class="px-4">Aquí podras ver los ultimos proyectos en los que he trabajado para diferentes
@@ -155,7 +155,7 @@
     {{-- /PROYECTOS --}}
 
     {{-- CONTÁCTAME --}}
-    <h1 class="font-bold text-me text-center my-6 text-metalic-100">Contáctame</h1>
+    <h1 id="contact" class="font-bold text-me text-center my-6 text-metalic-100">Contáctame</h1>
     <section id="contact" class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 py-12 text-metalic-100">
         {{-- Información de contacto --}}
         <div>
@@ -215,23 +215,4 @@
         {{-- /Formulario de contacto --}}
     </section>
     {{-- /CONTÁCTAME --}}
-
-    {{-- FOOTER --}}
-    <footer class="relative p-6 bg-metalic-200" style="box-shadow: 0px -10px 33px rgba(0, 0, 0, 0.5)">
-        <img class="line_1 absolute" src="{{ asset('./img/lines_footer.svg') }}">
-        <img class="line_2 absolute rotate-180" src="{{ asset('./img/lines_footer.svg') }}">
-
-        <div class="space-y-4">
-            <div class="flex justify-center items-center">
-                <img class="w-64" src="{{ asset('./img/logo_footer.svg') }}"
-                    alt="Logo de carlos villatoro footer">
-            </div>
-
-            <div class="flex justify-center md:justify-end items-center">
-                <p class="text-white">&copy; 2021 by <span class="font-bold text-yellow-500">Carlos villatoro</span>
-                </p>
-            </div>
-        </div>
-    </footer>
-    {{-- /FOOTER --}}
 </x-app-layout>

@@ -5,26 +5,38 @@ $nav_links = [
         'name' => 'Inicio',
         'url' => route('home'),
         'active' => /* request()->routeIs('home') */ false,
+        'class' => '',
     ],
     [
         'name' => 'Sobre mí',
-        'url' => '#about',
+        'url' => route('home') . '#about',
         'active' => Request::url() === 'https://villatoro.test/#about',
+        'class' => '',
     ],
     [
         'name' => 'Servicios',
-        'url' => '#service',
+        'url' => route('home') . '#services',
         'active' => false,
+        'class' => '',
     ],
     [
         'name' => 'Proyectos',
-        'url' => '#prject',
+        'url' => route('home') . '#project',
         'active' => false,
+        'class' => '',
     ],
     [
         'name' => 'Contáctame',
-        'url' => '#contact',
+        'url' => route('home') . '#contact',
         'active' => false,
+        'class' => '',
+    ],
+
+    [
+        'name' => 'Blog',
+        'url' => route('blog'),
+        'active' => false,
+        'class' => 'text-yellow-500',
     ],
 ];
 @endphp
@@ -46,7 +58,8 @@ $nav_links = [
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @foreach ($nav_links as $nav_link)
-                        <x-jet-nav-link href="{{ $nav_link['url'] }}" :active="$nav_link['active']">
+                        <x-jet-nav-link class="{{ $nav_link['class'] }}" href="{{ $nav_link['url'] }}"
+                            :active="$nav_link['active']">
                             {{ $nav_link['name'] }}
                         </x-jet-nav-link>
                     @endforeach
@@ -163,7 +176,7 @@ $nav_links = [
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                    this.closest('form').submit();">
+                                                                                                                                                                                                                                                                    this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -177,7 +190,7 @@ $nav_links = [
             </div>
 
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
+            <div class="mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -243,7 +256,7 @@ $nav_links = [
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                                                                                                    this.closest('form').submit();">
+                                                                                                                                                                                                                                                    this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-jet-responsive-nav-link>
                     </form>
