@@ -9,6 +9,8 @@ Route::get('/', function () {
 
 Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
 
+Route::get('blog/{post}', [BlogController::class, 'show'])->name('blog.show');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

@@ -35,4 +35,10 @@ class Post extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    /* URL AMIGABLE */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
