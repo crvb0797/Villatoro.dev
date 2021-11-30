@@ -34,7 +34,7 @@ $nav_links = [
 
     [
         'name' => 'Blog',
-        'url' => route('blog'),
+        'url' => route('blog.index'),
         'active' => false,
         'class' => 'text-yellow-500',
     ],
@@ -176,7 +176,7 @@ $nav_links = [
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                    this.closest('form').submit();">
+                                                                                                                                                                                                                                                                        this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -256,7 +256,7 @@ $nav_links = [
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                                                                                                                                                                    this.closest('form').submit();">
+                                                                                                                                                                                                                                                        this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-jet-responsive-nav-link>
                     </form>

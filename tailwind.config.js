@@ -22,6 +22,16 @@ module.exports = {
                 skyblue: '#3FAFDD',
                 purple: '#8472AD',
                 pink: '#D843AB',
+
+                'purple-custom': '#544179',
+                'skyblue-custom': '#32C1CD',
+                'yellow-custom': '#FFA900',
+                'red-custom': '#950101',
+                'cake-custom': '#A9E4D7',
+                'beige-custom': '#B4B897',
+                'blue-custom': '#39A2DB'
+
+
     
             },
         },
