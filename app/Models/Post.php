@@ -24,6 +24,12 @@ class Post extends Model
         return $this->belongsTo('Category::class');
     }
 
+    /* RELACIÓN N:N */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
     /* RELACION 1:1 POLIMORFICA */
     public function image()
     {
