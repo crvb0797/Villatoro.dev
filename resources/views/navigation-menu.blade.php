@@ -162,7 +162,7 @@ $nav_links = [
                                     {{ __('Mi perfil') }}
                                 </x-jet-dropdown-link>
 
-                                <x-jet-dropdown-link href="{{ route('home') }}">
+                                <x-jet-dropdown-link href="{{ route('admin.home') }}">
                                     {{ __('Administrador') }}
                                 </x-jet-dropdown-link>
 
@@ -180,7 +180,7 @@ $nav_links = [
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                    this.closest('form').submit();">
+                                                                                                                                                                                                                                                                                                                                        this.closest('form').submit();">
                                         <div class="flex justify-between items-center">
                                             Cerrar sesión <i class="ml-2 text-red-600 fas fa-power-off"></i>
                                         </div>
@@ -263,7 +263,7 @@ $nav_links = [
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                    this.closest('form').submit();">
+                                                                                                                                                                                                                                                                                                                        this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-jet-responsive-nav-link>
                     </form>

@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/admin',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -234,16 +234,16 @@ return [
         // Sidebar items:
         [
             'text'        => 'Inicio',
-            'route'         => 'home',
+            'route'         => 'admin.home',
             'icon'        => 'fas fa-fw fa-home',
         ],
 
         ['header' => 'ADMINISTRACIÓN DEL BLOG'],
 
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Categorías',
+            'route'  => 'admin.categories.index',
+            'icon' => 'fas fa-tags fa-fw',
         ],
         [
             'text' => 'change_password',

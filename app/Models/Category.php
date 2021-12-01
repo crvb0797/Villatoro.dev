@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected $guarded = ['id', 'timestamps'];
 
     /* RELACION 1:N */
     public function posts()
