@@ -25,12 +25,12 @@ $nav_links = [
         'active' => false,
         'class' => '',
     ],
-    [
+    /* [
         'name' => 'Contáctame',
         'url' => route('home') . '#contact',
         'active' => false,
         'class' => '',
-    ],
+    ], */
 
     [
         'name' => 'Blog',
@@ -155,11 +155,15 @@ $nav_links = [
                             <x-slot name="content">
                                 <!-- Account Management -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Account') }}
+                                    {{ __('Administrar cuenta') }}
                                 </div>
 
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                    {{ __('Profile') }}
+                                    {{ __('Mi perfil') }}
+                                </x-jet-dropdown-link>
+
+                                <x-jet-dropdown-link href="{{ route('home') }}">
+                                    {{ __('Administrador') }}
                                 </x-jet-dropdown-link>
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -176,9 +180,12 @@ $nav_links = [
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                        this.closest('form').submit();">
-                                        {{ __('Log Out') }}
+                                                                                                                                                                                                                                                                                                                                    this.closest('form').submit();">
+                                        <div class="flex justify-between items-center">
+                                            Cerrar sesión <i class="ml-2 text-red-600 fas fa-power-off"></i>
+                                        </div>
                                     </x-jet-dropdown-link>
+
                                 </form>
                             </x-slot>
                         </x-jet-dropdown>
@@ -256,7 +263,7 @@ $nav_links = [
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                                                                                                                                                                        this.closest('form').submit();">
+                                                                                                                                                                                                                                                                                                                    this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-jet-responsive-nav-link>
                     </form>
