@@ -14,6 +14,12 @@ class BlogController extends Controller
 
     public function show(Post $post)
     {
-        return view('blog.show', compact('post'));
+        $similares = Post::where('category_id', $post->category_id)
+            ->where('status', Post::PUBLICADO)
+            ->where('id', '!=', $post->id)
+            ->latest('id')
+            ->take(5)
+            ->get();
+        return view('blog.show', compact('post', 'similares'));
     }
 }
