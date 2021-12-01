@@ -12,6 +12,14 @@ class Post extends Model
     const BORRADOR = 1;
     const PUBLICADO = 2;
 
+    /* QUERY SCOPE */
+    public function scopeCategory($query, $category_id)
+    {
+        if ($category_id) {
+            return $query->where('category_id', $category_id);
+        }
+    }
+
     /* RELACION 1:N INVERSA */
 
     public function user()

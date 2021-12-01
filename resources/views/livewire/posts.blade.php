@@ -2,7 +2,37 @@
 
     {{-- FILTRADO POR CATEGORÍAS --}}
 
+    <div class="bg-metalic-200 py-4" style="box-shadow: 0px -10px 33px rgba(0, 0, 0, 0.5)">
+        <div class="container_2 flex space-x-4">
+            <button wire:click="resetFilters"
+                class="bg-white shadow h-12 px-4 rounded-lg text-gray-700 text-sm focus:outline-none"><i
+                    class="fas fa-layer-group mr-2"></i>
+                Todos los post</button>
 
+            {{-- DROPDOW CATEGORÍA --}}
+            <div class="relative" x-data="{ open:false }">
+                <button x-on:click="open = !open"
+                    class="block overflow-hidden focus:outline-none bg-white shadow h-12 px-4 rounded-lg text-gray-700 text-sm">
+                    <i class="fas fa-glasses mr-2"></i> Categoría <i class="fas fa-angle-down ml-2"></i>
+                </button>
+                <!-- Dropdown Body -->
+                <div x-on:click.away="open = false"
+                    class="absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl" x-show="open">
+                    @foreach ($categories as $category)
+                        <a wire:click="$set('category_id', {{ $category->id }})" x-on:click="open = false"
+                            class="cursor-pointer transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-yellow-500 hover:text-white">{{ $category->name }}</a>
+                    @endforeach
+
+                </div>
+
+                <!-- // Dropdown Body -->
+            </div>
+            <!-- // Dropdown -->
+
+        </div>
+    </div>
+
+    {{-- POST --}}
     <div class="container py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($posts as $post)
@@ -21,8 +51,8 @@
                         {{-- etiquetas --}}
                         <div class="mb-2">
                             @foreach ($post->tags as $tag)
-                                <a class="inline-block px-3 h-6 bg-{{ $tag->color }}-custom text-white rounded-full"
-                                    href="#">{{ $tag->name }}</a>
+                                <span
+                                    class="inline-block px-3 h-6 bg-{{ $tag->color }}-custom text-white rounded-full">{{ $tag->name }}</span>
                             @endforeach
                         </div>
                         {{-- etiquetas --}}
