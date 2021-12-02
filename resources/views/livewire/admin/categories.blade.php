@@ -1,8 +1,18 @@
 <div class="card">
-    <div class="card-header d-flex justify-content-between align-items-cente">
-        <input wire:model="search" type="search" class="form-control mr-4" placeholder="Buscar categoría..." />
-        <a class="btn btn-warning text-white text-center" href="{{ route('admin.categories.create') }}"><i
-                class="fas fa-plus-square"></i></a>
+    @if (session()->has('message'))
+        <div class="alert alert-success" style="margin-top:30px;">
+            {{ session('message') }}
+        </div>
+    @endif
+
+    <div class="card-header d-flex align-items-cente">
+        <div class="flex-grow-1 mr-4">
+            <input wire:model="search" type="search" class="form-control mr-4 " placeholder="Buscar categoría..." />
+        </div>
+
+        <div>
+            @livewire('admin.create-category')
+        </div>
     </div>
 
     <div class="card-body">

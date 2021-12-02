@@ -11,6 +11,8 @@ class Categories extends Component
     public $sort = 'id';
     public $direction = 'desc';
 
+    protected $listeners = ['render'];
+
     public function render()
     {
         $categories = Category::where('name', 'LIKE', '%' . $this->search . '%')
