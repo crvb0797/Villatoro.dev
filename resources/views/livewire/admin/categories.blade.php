@@ -1,10 +1,11 @@
-<div>
+<div wire:init="loadCategory">
     <h1 class="text-white mb-6 font-bold">Listado de categorías</h1>
     <div class="">
         <x-table>
             <div class="px-6 py-4 flex items-center">
+
                 {{-- BUSCADOR --}}
-                <x-jet-input class="flex-1 mx-4" placeholder="Ingrese el título a buscar..." type="text"
+                <x-jet-input class="flex-1 mx-4" placeholder="Ingrese el nombre a buscar..." type="text"
                     wire:model="search" />
 
                 {{-- CREAR POST --}}
@@ -73,7 +74,7 @@
                     </tbody>
                 </table>
             @else
-                <div class="flex flex-col justify-center items-center w-full">
+                <div class="flex flex-col justify-center items-center w-full bg-white rounded-lg">
                     <img class="w-72" src="{{ asset('img/ghost.gif') }}" alt="No se encontraron registros">
                     <strong class="block -mt-16 mb-16">No se encontro ningun registro...</strong>
                 </div>

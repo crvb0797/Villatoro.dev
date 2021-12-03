@@ -3,18 +3,20 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Categories extends Component
 {
+    use WithPagination;
     public $name;
-    public $search;
+    public $search = '';
     public $open_edit = false;
-    public $sort = 'id';
-    public $direction = 'desc';
+    public $sort = "id";
+    public $direction = "desc";
     public $readyToLoad = false;
 
+    /* OYENTE DEL EVENTO EMITIDO */
     protected $listeners = ['render', 'delete'];
 
     protected $queryString = [
@@ -25,50 +27,42 @@ class Categories extends Component
         'category.name' => 'required',
     ];
 
+
+
     public function mount()
     {
-        $this->name = new Category();
+
+        $this->category = new Category();
     }
 
-    /* EDITAR UN POST */
-    public function edit(Category $category)
+    public function updatingSearch()
     {
-        $this->category = $category;
-        $this->open_edit = true;
+        $this->resetPage();
     }
 
-    public function update()
-    {
-        /* CON ESTO LOGRAMOS HACER LAS VALIDACIONES, LEE LA PROPIEDAD RULES */
-        $this->validate();
-        $this->category->save();
-
-        $this->reset(['open_edit']);
-
-        $this->emit('alert', 'La catégoria se actualizo con éxito 👽');
-    }
-
-    public function delete(Category $category)
-    {
-        $category->delete();
-    }
-
-    public function loadPost()
+    public function loadCategory()
     {
         $this->readyToLoad = true;
     }
 
     public function render()
     {
-        $categories = Category::where('name', 'LIKE', '%' . $this->search . '%')
-            ->orderBy($this->sort, $this->direction)
-            ->get();
+        if ($this->readyToLoad) {
+            $categories = Category::where('name', 'LIKE', '%' . $this->search . '%')
+                ->orderBy($this->sort, $this->direction)
+                ->paginate();
+        } else {
+            $categories = [];
+        }
+
         return view('livewire.admin.categories', compact('categories'));
     }
 
+
+
+    /* AQUÍ HACEMOS EL FILTRADO POR CAMPO */
     public function order($sort)
     {
-
         if ($this->sort == $sort) {
             if ($this->direction == 'desc') {
                 $this->direction = 'asc';
@@ -79,5 +73,28 @@ class Categories extends Component
             $this->sort = $sort;
             $this->direction = 'asc';
         }
+    }
+
+    /* EDITAR UN POST */
+    public function edit(Category $category)
+    {
+        $this->name = $category;
+        $this->open_edit = true;
+    }
+    public function update()
+    {
+        /* CON ESTO LOGRAMOS HACER LAS VALIDACIONES, LEE LA PROPIEDAD RULES */
+        $this->validate();
+
+        $this->category->save();
+
+        $this->reset(['open_edit']);
+
+        $this->emit('alert', 'La categoría se actualizo con éxito 🚀');
+    }
+
+    public function delete(Category $category)
+    {
+        $category->delete();
     }
 }
