@@ -8,6 +8,8 @@ use Livewire\Component;
 class CreateCategory extends Component
 {
     public $name;
+    public $open = false;
+
     protected $rules = [
         'name' => 'required|unique:categories'
     ];
@@ -17,24 +19,17 @@ class CreateCategory extends Component
         return view('livewire.admin.create-category');
     }
 
-    private function resetInputFields()
-    {
-        $this->name = '';
-    }
-
-    public function store()
+    public function save()
     {
         $this->validate();
-
         Category::create([
             'name' => $this->name,
         ]);
 
-        $this->resetInputFields();
+        $this->reset(['open', 'name']);
 
 
         $this->emit('render');
-        $this->emit('userStore');
         $this->emit('alert', 'La categoría se creo con exito 🍕');
     }
 }

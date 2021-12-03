@@ -16,6 +16,10 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+    <!-- Toaster.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     @livewireStyles
 
     <!-- Scripts -->
@@ -58,6 +62,21 @@
 
     @livewireScripts
 
+    @stack('js')
+    {{-- TOASTR --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        Livewire.on('alert', (message) => {
+            toastr["success"](message)
+        });
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "showMethod": "slideDown",
+            "hideMethod": "slideUp",
+            "positionClass": "toast-top-right",
+        }
+    </script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <x-admin>
     @section('content')
-        @livewire('admin.categories')
+        @livewire('admin.tags')
     @endsection
 </x-admin>
