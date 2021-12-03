@@ -64,3 +64,7 @@ h3{
 .card-service{
     @apply p-6 md:p-14 rounded-lg text-white h-96 flex flex-col justify-center relative bg-no-repeat bg-cover;
 }
+
+.select-control{
+    @apply border border-gray-300 rounded-md shadow text-gray-600 h-10 pl-5 pr-10 bg-white focus:outline-none appearance-none;
+}

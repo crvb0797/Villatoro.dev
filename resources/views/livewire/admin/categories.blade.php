@@ -1,6 +1,6 @@
 <div wire:init="loadCategory">
     <h1 class="text-white mb-6 font-bold">Listado de categorías</h1>
-    <div class="">
+    <div class="mb-8">
         <x-table>
             <div class="px-6 py-4 flex items-center">
 
@@ -32,7 +32,7 @@
                             <th scope="col"
                                 class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 wire:click="order('name')">
-                                Título
+                                Nombre de la categoría
                                 @if ($sort == 'name')
                                     @if ($direction == 'asc')
                                         <i class="fas fa-sort-up mt-1"></i>

@@ -78,7 +78,7 @@ class Categories extends Component
     /* EDITAR UN POST */
     public function edit(Category $category)
     {
-        $this->name = $category;
+        $this->category = $category;
         $this->open_edit = true;
     }
     public function update()

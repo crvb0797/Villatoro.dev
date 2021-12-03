@@ -9,6 +9,8 @@ class Tag extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id', 'timestamps'];
+
     /* RELACIÓN N:N */
     public function posts()
     {
