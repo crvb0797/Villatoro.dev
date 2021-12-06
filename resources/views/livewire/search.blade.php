@@ -15,7 +15,7 @@
 
         {{-- AUTOCOMPLETE --}}
         @if ($search)
-            <ul class="absolute left-0 w-full bg-white rounded-lg mt-1 overflow-hidden">
+            <ul class="absolute left-0 w-full bg-white rounded-lg mt-1 overflow-hidden z-50">
                 @forelse ($this->results as $result)
                     <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
                         <a href="{{ route('blog.show', $result) }}">

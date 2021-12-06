@@ -3,7 +3,7 @@
     <section id="hero" class="header md:h-screen grid grid-cols-1 md:grid-cols-3 mb-10 md:mb-0">
         {{-- presentación --}}
         <div class="md:col-span-2">
-            <div
+            <div data-aos="fade-right"
                 class="w-auto container mx-auto h-full flex flex-col mt-10 md:mt-0 md:justify-center items-center md:px-40 md:items-start space-y-3">
                 <h3 class="text-white">👋 Hola,</h3>
                 <h1 class="text-yellow-500 font-extrabold">Soy Carlos Villatoro</h1>
@@ -29,16 +29,18 @@
 
         <div class="bg-yellow-500 hidden md:block md:col-span-1 relative">
             {{-- foto --}}
-            <img class="foto absolute" src="{{ asset('./img/foto_secondary.jpg') }}" alt="Foto de Carlos Villatoro">
+            <img data-aos="fade-left" class="foto absolute" src="{{ asset('./img/foto_secondary.jpg') }}"
+                alt="Foto de Carlos Villatoro">
             {{-- /foto --}}
         </div>
     </section>
     {{-- /HEADER --}}
 
     {{-- SOBRE MÍ --}}
-    <section id="about" id="about" class="grid grid-cols-1 md:grid-cols-2 bg-metalic-200 py-12 shadow-md">
+    <section id="about" id="about"
+        class="grid grid-cols-1 md:grid-cols-2 bg-metalic-200 py-12 shadow-md overflow-hidden">
         {{-- foto --}}
-        <div class="relative flex justify-center items-center mb-4 md:mb-0">
+        <div class="relative flex justify-center items-center mb-4 md:mb-0" data-aos="fade-right">
             <img class="absolute z-0 hidden md:block" src="{{ asset('./img/lines.svg') }}" alt="lineas de decoración">
             <img class="z-50" src="{{ asset('./img/sobre_mi_foto.png') }}"
                 alt="Foto sobre mí de Carlos Villatoro">
@@ -46,7 +48,7 @@
         {{-- foto --}}
 
         {{-- sobre mí --}}
-        <div class="flex flex-col justify-center px-6 md:px-10">
+        <div class="flex flex-col justify-center px-6 md:px-10" data-aos="fade-left">
             <h1 class="text-metalic-100 font-extrabold">Sobre mí</h1>
             <p class="block mt-4 text-metalic-100 leading-loose">
                 👽 La codificación ha cambiado mi mundo. Aprender a codificar me dio habilidades
@@ -70,7 +72,8 @@
         <h1 class="text-metalic-100 font-extrabold mb-12 px-4">Servicios</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-9 px-4">
             {{-- DISEÑO WEB --}}
-            <div class="card-service" style="background-image: url({{ asset('./img/diseño.png') }})">
+            <div class="card-service" style="background-image: url({{ asset('./img/diseño.png') }})"
+                data-aos="flip-up">
                 <div class="absolute inset-0 w-full h-full opacity-70 bg-skyblue rounded-lg z-0"></div>
                 <div class="z-50 space-y-6">
                     <i class="fas fa-swatchbook text-6xl md:text-8xl"></i>
@@ -84,7 +87,8 @@
             {{-- /DISEÑO WEB --}}
 
             {{-- DESARROLLO WEB --}}
-            <div class="card-service" style="background-image: url({{ asset('./img/code.png') }})">
+            <div class="card-service" style="background-image: url({{ asset('./img/code.png') }})"
+                data-aos="flip-up">
                 <div class="absolute inset-0 w-full h-full opacity-70 bg-purple rounded-lg z-0"></div>
                 <div class="z-50 space-y-6">
                     <i class="fas fa-laptop-code text-6xl md:text-8xl"></i>
@@ -98,7 +102,8 @@
             {{-- /DESARROLLO WEB --}}
 
             {{-- SOPORTE TECNICO --}}
-            <div class="card-service" style="background-image: url({{ asset('./img/soporte.png') }})">
+            <div class="card-service" style="background-image: url({{ asset('./img/soporte.png') }})"
+                data-aos="flip-up">
                 <div class="absolute inset-0 w-full h-full opacity-70 bg-pink rounded-lg z-0"></div>
                 <div class="z-50 space-y-6">
                     <i class="fas fa-cogs text-6xl md:text-8xl"></i>
@@ -118,38 +123,111 @@
 
     {{-- PROYECTOS --}}
     <section id="project" id="project" class="bg-metalic-200 py-12 shadow-md text-metalic-100">
-        <div class="container mx-auto space-y-4">
-            <h1 class="font-bold px-4">Últimos proyectos</h1>
-            <p class="px-4">Aquí podras ver los ultimos proyectos en los que he trabajado para diferentes
-                clientes y proyectos de
-                código abierto.</p>
-            <div class="grid grid-cols-1 grid-rows-1 md:grid-cols-2 md:grid-rows-2 gap-x-10 gap-y-4 px-4">
-                {{-- camas a domicilio --}}
-                <div class="row-span-2 rounded-xl overflow-hidden">
-                    <a href="https://www.camasadomicilio.villatoro.dev" target="_blank">
-                        <img class="w-full h-full bg-center" src="{{ asset('/img/camasadomicilio.png') }}"
-                            alt="Foto de proyecto Camas a domicilio">
-                    </a>
-                </div>
-                {{-- camas a domicilio --}}
-
-                {{-- cdc --}}
-                <div class="rounded-xl overflow-hidden">
-                    <a href="https://www.cdctech.villatoro.dev" target="_blank">
-                        <img class="w-full bg-center" src="{{ asset('/img/cdc.png') }}" alt="Foto de proyecto cdc">
-                    </a>
-                </div>
-                {{-- cdc --}}
-
-                {{-- universal pc --}}
-                <div class="rounded-xl overflow-hidden">
-                    <a href="https://www.universalpc.villatoro.dev" target="_blank">
-                        <img class="w-full bg-center" src="{{ asset('/img/universalpc.png') }}"
-                            alt="Foto de proyecto universal pc">
-                    </a>
-                </div>
-                {{-- universal pc --}}
+        <div class="container mx-auto space-y-2 flex flex-col items-center">
+            <h1 class="font-bold px-4 text-center">Últimos proyectos</h1>
+            <div class="container_title">
+                <p class="px-4 text-center">Aquí podras ver los ultimos proyectos en los que he trabajado para
+                    diferentes
+                    clientes y proyectos de
+                    código abierto.</p>
             </div>
+            {{-- proyectos y descripciones --}}
+            <div class="container_projects w-full container_2">
+                {{-- Camas a domicilio --}}
+                <div data-aos="zoom-in-up"
+                    class="container_project w-full flex flex-col md:flex-row md:justify-between items-center justify-center border-b-2 border-metalic-100">
+
+                    {{-- imagen proyecto --}}
+                    <div class="pt-10 -ml-10">
+                        <img class="" src="{{ asset('./img/camasadomicilio_sombra.svg') }}"
+                            alt="Foto de camas a domicilio">
+                    </div>
+
+                    {{-- descripción del proyecto --}}
+                    <div class="container_description px-4 flex flex-col items-start">
+                        {{-- Titulo --}}
+                        <div class="flex flex-col text-center md:flex-row items-center mb-4"> {{-- title_project flex flex-col md:flex-row items-center md:space-y-0 mb-4 --}}
+                            <h1 class="font-bold mb-4 mr-0 md:mb-0 md:mr-4">Camas a domicilio</h1>
+                            <span class="px-4 py-1 bg-skyblue text-white rounded-lg">2021</span>
+                        </div>
+                        {{-- descripción y botón --}}
+                        <div class="left_container">
+                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                Autem
+                                illo soluta eos natus
+                                quibusdam a doloribus molestiae atque minus, ipsa ad, dolor nulla dolorem ipsum.
+                                Voluptatem aspernatur porro veritatis sed.</p>
+                            <a href="https://camasadomicilio.villatoro.dev"
+                                class="py-2 px-4 bg-yellow-500 text-white hover:bg-yellow-600 mt-4 rounded-lg text-center block mb-12 md:mb-0 md:inline-block">Visitar
+                                sitio web</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                {{-- Universal pc --}}
+                <div data-aos="zoom-in-up"
+                    class="container_project w-full flex flex-col md:flex-row justify-between items-center border-b-2 border-metalic-100">
+                    {{-- descripción del proyecto --}}
+                    <div class="container_description px-4 order-1 flex flex-col items-end">
+                        {{-- Titulo --}}
+                        <div class="flex flex-col text-center md:flex-row items-center md:justify-end mb-4 w-full">
+                            <h1 class="font-bold mb-4 ml-0 md:mb-0 md:ml-4 md:order-1">Universal PC</h1>
+                            <span class="px-4 py-1 bg-skyblue text-white rounded-lg">2021</span>
+                        </div>
+                        {{-- descripción y botón --}}
+                        <div class="right_container"">
+                            <p class="                      mb-4 md:text-right">Lorem ipsum dolor sit amet consectetur,
+                            adipisicing
+                            elit.
+                            Autemillo soluta eos natus quibusdam a doloribus molestiae atque minus, ipsa ad, dolor nulla
+                            dolorem ipsum.
+                            Voluptatem aspernatur porro veritatis sed.</p>
+                            <div class="flex justify-end items-center w-full">
+                                <a href="https://universalpc.villatoro.dev"
+                                    class="py-2 px-4 bg-yellow-500 text-white hover:bg-yellow-600 mt-4 rounded-lg text-center block mb-12 md:mb-0 md:inline-block w-full md:w-auto"
+                                    target="_blank">Visitar
+                                    sitio web</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- imagen proyecto --}}
+                    <div class="pt-10 md:order-1 mb-10 md:mb-0">
+                        <img src="{{ asset('./img/universalpc.svg') }}" alt="Foto de camas a domicilio">
+                    </div>
+
+                </div>
+
+
+                {{-- CDC --}}
+                <div data-aos="zoom-in-up"
+                    class="container_project w-full flex flex-col md:flex-row justify-between items-center">
+                    {{-- imagen proyecto --}}
+                    <div class="pt-10 -ml-6">
+                        <img src="{{ asset('./img/CDC_sombra.svg') }}" alt="Foto de CDC">
+                    </div>
+
+                    {{-- descripción del proyecto --}}
+                    <div class="container_description px-4 flex flex-col items-start">
+                        {{-- Titulo --}}
+                        <div class="flex flex-col text-center md:flex-row items-center mb-4 w-full">
+                            <h1 class="font-bold mb-4 mr-0 md:mb-0 md:mr-4">CDC</h1>
+                            <span class="px-4 py-1 bg-skyblue text-white rounded-lg">2021</span>
+                        </div>
+                        {{-- descripción y botón --}}
+                        <div class="left_container">
+                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem
+                                illo soluta eos natus
+                                quibusdam a doloribus molestiae atque minus, ipsa ad, dolor nulla dolorem ipsum.
+                                Voluptatem aspernatur porro veritatis sed.</p>
+                            <a href="https://cdctech.com.gt" target="_blank"
+                                class="py-2 px-4 bg-yellow-500 text-white hover:bg-yellow-600 mt-4 rounded-lg text-center block mb-12 md:mb-0 md:inline-block">Visitar
+                                sitio web</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- /proyectos y descripciones --}}
         </div>
     </section>
     {{-- /PROYECTOS --}}

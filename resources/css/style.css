@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 h1{
     @apply text-3xl md:text-4xl 
 }
@@ -67,4 +71,19 @@ h3{
 
 .select-control{
     @apply border border-gray-300 rounded-md shadow text-gray-600 h-10 pl-5 pr-10 bg-white focus:outline-none appearance-none;
+}
+
+
+.container_title{
+    width: 35rem;
+}
+
+.left_container, .right_container{
+    width: 45rem;
+}
+
+@media screen and (max-width: 640px) {
+    .left_container, .right_container, .container_title{
+        width: auto;
+    }
 }

@@ -1,6 +1,7 @@
 <x-app-layout>
     {{-- HERO --}}
-    <section class="bg-cover bg-center" style="background-image:url({{ asset('./img/banner_blog.jpg') }})">
+    <section class="snowflakeContainer snow bg-cover bg-center relative" {{-- style="background-image:url({{ asset('./img/banner_blog.jpg') }})" --}}>
+        {{-- <div class="bg-black absolute inset-0 w-full h-full opacity-75"></div> --}}
         <div class="container_2 py-36">
             <div class="w-full md:w-3/4 lg:w-1/2">
                 <h1 class="text-white font-bold">

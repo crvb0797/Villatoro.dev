@@ -3,26 +3,26 @@
         <h1 class="px-2 lg:px-0 font-bold text-gray-300">{{ $post->name }}</h1>
 
         <p class="px-2 lg:px-0 text-base md:text-lg text-gray-200 py-2">
-            {{ Str::limit($post->body, 200, '...') }}
+            {!! Str::limit($post->body, 200, '...') !!}
         </p>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {{-- CONTENIDO PRINCIPAL --}}
             <div class="lg:col-span-2">
                 <figure class="relative">
-                    <img class="w-full h-80 object-cover object-center" src="{{ Storage::url($post->image->url) }}"
-                        alt="{{ $post->name }}">
+                    <img class="rounded-xl w-full h-80 object-cover object-center"
+                        src="{{ Storage::url($post->image->url) }}" alt="{{ $post->name }}">
 
                     <div class="mb-2 absolute top-0 px-6 py-4 space-x-1">
                         @foreach ($post->tags as $tag)
-                            <a class="inline-block px-3 h-6 bg-{{ $tag->color }}-custom text-white rounded-full"
-                                href="#">{{ $tag->name }}</a>
+                            <span class="inline-block px-3 h-6 bg-{{ $tag->color }}-custom text-white rounded-full"
+                                href="#">{{ $tag->name }}</span>
                         @endforeach
                     </div>
                 </figure>
 
-                <div class="px-2 lg:px-0 text-gray-200 text-base py-6 leading-8">
-                    {{ $post->body }}
+                <div class="px-6 text-gray-500 text-base py-6 leading-8 mt-8 md:rounded-xl bg-white">
+                    {!! $post->body !!}
                 </div>
             </div>
 

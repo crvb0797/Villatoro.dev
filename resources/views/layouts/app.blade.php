@@ -20,6 +20,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    {{-- AOS --}}
+    <link rel="stylesheet" href="{{ asset('./vendor/aos-master/dist/aos.css') }}">
+    <script src="{{ asset('./vendor/aos-master/dist/aos.js') }}"></script>
+
+
     @livewireStyles
 
     <!-- Scripts -->
@@ -39,7 +44,7 @@
 
         {{-- FOOTER --}}
     </div>
-    <footer class="relative p-6 bg-metalic-200" style="box-shadow: 0px -10px 33px rgba(0, 0, 0, 0.5)">
+    <footer class="snow relative p-6 bg-metalic-200" style="box-shadow: 0px -10px 33px rgba(0, 0, 0, 0.5)">
         <img class="line_1 absolute" src="{{ asset('./img/lines_footer.svg') }}">
         <img class="line_2 absolute rotate-180" src="{{ asset('./img/lines_footer.svg') }}">
 
@@ -63,6 +68,15 @@
     @livewireScripts
 
     @stack('js')
+    <script src="{{ asset('./js/snow.js') }}"></script>
+    <script>
+        AOS.init({
+            duration: 1500,
+            delay: 80,
+            /* disable: phone, */
+        });
+    </script>
+
     {{-- TOASTR --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
@@ -77,6 +91,8 @@
             "positionClass": "toast-top-right",
         }
     </script>
+
+
 </body>
 
 </html>
