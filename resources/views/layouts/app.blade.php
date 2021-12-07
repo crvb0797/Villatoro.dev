@@ -40,6 +40,10 @@
         <!-- Page Content -->
         <main>
             {{ $slot }}
+
+            <button
+                class="hidden fixed bottom-5 right-7 z-20 border-0 outline-none bg-yellow-500 text-white cursor-pointer py-4 px-6 rounded-full text-lg hover:bg-yellow-600"
+                onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
         </main>
 
         {{-- FOOTER --}}
@@ -68,7 +72,7 @@
     @livewireScripts
 
     @stack('js')
-    <script src="{{ asset('./js/snow.js') }}"></script>
+    <script src="{{ asset('./js/button_top.js') }}"></script>
     <script>
         AOS.init({
             duration: 1500,

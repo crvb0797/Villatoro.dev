@@ -1027,6 +1027,12 @@ select{
 .left-10{
 	left: 2.5rem;
 }
+.bottom-5{
+	bottom: 1.25rem;
+}
+.right-7{
+	right: 1.75rem;
+}
 .z-0{
 	z-index: 0;
 }
@@ -1537,11 +1543,18 @@ select{
 	border-bottom-right-radius: 0px;
 	border-bottom-left-radius: 0px;
 }
+.rounded-t-xl{
+	border-top-left-radius: 0.75rem;
+	border-top-right-radius: 0.75rem;
+}
 .border{
 	border-width: 1px;
 }
 .border-2{
 	border-width: 2px;
+}
+.border-0{
+	border-width: 0px;
 }
 .border-b-2{
 	border-bottom-width: 2px;
@@ -1732,6 +1745,9 @@ select{
 }
 .p-6{
 	padding: 1.5rem;
+}
+.p-4{
+	padding: 1rem;
 }
 .px-4{
 	padding-left: 1rem;
