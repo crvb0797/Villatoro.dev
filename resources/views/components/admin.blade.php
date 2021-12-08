@@ -1,27 +1,23 @@
 <x-app-layout>
-    @yield('css')
-    {{-- Componente de side bar --}}
-    <!-- component -->
-    <div class="flex">
-        <!-- container -->
 
-        <aside class="fixed pb-8 flex flex-col items-center bg-metalic-200 text-gray-700 shadow"
-            style="box-shadow: 0px -10px 33px rgba(0, 0, 0, 0.5)">
-            <!-- Side Nav Bar-->
-
-            <!-- Logo -->
-            <div class="h-16 flex items-center w-full">
+    <div x-data="{open: false}" class="relative">
+        {{-- Componente de side bar --}}
+        <!-- component -->
+        <aside
+            class="absolute z-10 bg-metalic-200 text-white pt-2 inset-0 transform duration-300 -translate-x-full w-16 h-96"
+            style="box-shadow: 0px 0px 10px rgba(145, 130, 130, 0.25)"
+            :class="{'translate-x-0 ease-in opacity-100':open === true, '-translate-x-full ease-out opacity-0':open === false}">
+            {{-- Logo --}}
+            <div>
                 <a class="mx-auto" href="{{ route('home') }}">
                     <img class="w-10 mx-auto" src="{{ asset('./img/logo_64.svg') }}" alt="svelte logo" />
                 </a>
             </div>
 
-            <!-- Items Section -->
-            <ul>
+            <ul class="mt-4">
                 <li class="hover:bg-yellow-500 hover:text-white">
                     <x-jet-nav-link href="{{ route('admin.home') }}"
-                        class="h-16 w-16 px-6 flex justify-center items-center
-					focus:text-orange-500"
+                        class="h-16 w-16 px-6 flex justify-center items-center focus:text-orange-500"
                         :active="request()->routeIs('admin.home')">
 
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -36,8 +32,7 @@
 
                 <li class="hover:bg-yellow-500 hover:text-white">
                     <x-jet-nav-link href="{{ route('admin.categories.index') }}"
-                        class="h-16 w-16 px-6 flex justify-center items-center
-					focus:text-orange-500"
+                        class="h-16 w-16 px-6 flex justify-center items-center focus:text-orange-500"
                         :active="request()->routeIs('admin.categories.index')">
 
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -52,8 +47,7 @@
 
                 <li class="hover:bg-yellow-500 hover:text-white">
                     <x-jet-nav-link href="{{ route('admin.tags.index') }}"
-                        class="h-16 w-16 px-6 flex justify-center items-center
-					focus:text-orange-500"
+                        class="h-16 w-16 px-6 flex justify-center items-center focus:text-orange-500"
                         :active="request()->routeIs('admin.tags.index')">
 
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -68,8 +62,7 @@
 
                 <li class="hover:bg-yellow-500 hover:text-white">
                     <x-jet-nav-link href="{{ route('admin.categories.index') }}"
-                        class="h-16 w-16 px-6 flex justify-center items-center
-					focus:text-orange-500"
+                        class="h-16 w-16 px-6 flex justify-center items-center focus:text-orange-500"
                         {{-- :active="request()->routeIs('admin.categories.index')" --}}>
 
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -82,8 +75,7 @@
 
                 <li class="hover:bg-yellow-500 hover:text-white">
                     <x-jet-nav-link href="{{ route('admin.categories.index') }}"
-                        class="h-16 w-16 px-6 flex justify-center items-center
-					focus:text-orange-500"
+                        class="h-16 w-16 px-6 flex justify-center items-center focus:text-orange-500"
                         {{-- :active="request()->routeIs('admin.categories.index')" --}}>
 
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -93,13 +85,28 @@
                         </svg>
                     </x-jet-nav-link>
                 </li>
+
+                <li class="bg-red-500 hover:text-white">
+                    <button class="h-16 w-16 px-6 flex justify-center items-center" @click="open = false">
+                        <svg class="h-10 w-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                        </svg>
+                    </button>
+                </li>
             </ul>
         </aside>
+        {{-- Componente de side bar --}}
 
-        <div class="container mx-auto pt-16">
+        <div class="container mx-auto pt-16 relative z-0">
             @yield('content')
         </div>
+
+        {{-- Open menu admin --}}
+
+        <button class="absolute top-36 left-0 p-3 rounded-r-lg bg-yellow-500 text-white" x-on:click="open = true"><i
+                class="fas fa-chevron-right"></i></button>
     </div>
-    {{-- Componente de side bar --}}
-    @yield('scripts')
+
 </x-app-layout>
