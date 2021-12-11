@@ -55,7 +55,7 @@ class Posts extends Component
         if ($this->readyToLoad) {
             $posts = Post::where('name', 'LIKE', '%' . $this->search . '%')
                 ->orderBy($this->sort, $this->direction)
-                ->paginate();
+                ->paginate(8);
         } else {
             $posts = [];
         }

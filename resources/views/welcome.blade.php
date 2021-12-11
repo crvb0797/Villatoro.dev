@@ -27,7 +27,8 @@
         </div>
         {{-- /presentación --}}
 
-        <div class="bg-yellow-500 hidden md:block md:col-span-1 relative">
+        <div class="bg-yellow-500 hidden md:block md:col-span-1 relative"
+            style="background-image: url({{ asset('./img/bg_secondary.svg') }})">
             {{-- foto --}}
             <img data-aos="fade-left" class="foto absolute" src="{{ asset('./img/foto_secondary.jpg') }}"
                 alt="Foto de Carlos Villatoro">
@@ -37,8 +38,7 @@
     {{-- /HEADER --}}
 
     {{-- SOBRE MÍ --}}
-    <section id="about" id="about"
-        class="grid grid-cols-1 md:grid-cols-2 bg-metalic-200 py-12 shadow-md overflow-hidden">
+    <section id="about" class="grid grid-cols-1 md:grid-cols-2 bg-metalic-200 py-24 shadow-md overflow-hidden">
         {{-- foto --}}
         <div class="relative flex justify-center items-center mb-4 md:mb-0" data-aos="fade-right">
             <img class="absolute z-0 hidden md:block" src="{{ asset('./img/lines.svg') }}" alt="lineas de decoración">
@@ -122,7 +122,7 @@
     {{-- /SERVICIOS --}}
 
     {{-- PROYECTOS --}}
-    <section id="project" id="project" class="bg-metalic-200 py-12 shadow-md text-metalic-100">
+    <section id="project" id="project" class="bg-metalic-200 py-12 shadow-md text-metalic-100 mb-12">
         <div class="container mx-auto space-y-2 flex flex-col items-center">
             <h1 class="font-bold px-4 text-center">Últimos proyectos</h1>
             <div class="container_title">
@@ -177,7 +177,9 @@
                         </div>
                         {{-- descripción y botón --}}
                         <div class="right_container"">
-                            <p class="                      mb-4 md:text-right">Lorem ipsum dolor sit amet consectetur,
+                            <p class="                                     mb-4 md:text-right">Lorem ipsum dolor sit
+                            amet
+                            consectetur,
                             adipisicing
                             elit.
                             Autemillo soluta eos natus quibusdam a doloribus molestiae atque minus, ipsa ad, dolor nulla
@@ -234,7 +236,7 @@
 
     {{-- CONTÁCTAME --}}
     <h1 id="contact" class="font-bold text-me text-center my-6 text-metalic-100">Contáctame</h1>
-    <section id="contact" class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 py-12 text-metalic-100">
+    <section id="contact" class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 py-20 text-metalic-100">
         {{-- Información de contacto --}}
         <div>
             <div>
@@ -264,7 +266,7 @@
 
         {{-- Formulario de contacto --}}
         <div>
-            <form action="" class="text-metalic-100 space-y-6">
+            <form action="" class="text-white-100 space-y-6">
                 <div class="w-full space-y-2">
                     <label class="text-xl font-bold">Nombre</label>
                     <input class="w-full rounded-xl" type="text">

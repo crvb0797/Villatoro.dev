@@ -1198,6 +1198,9 @@ select{
 .-mt-14{
 	margin-top: -3.5rem;
 }
+.mt-20{
+	margin-top: 5rem;
+}
 .block{
 	display: block;
 }
@@ -1862,6 +1865,18 @@ select{
 .px-10{
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
+}
+.py-28{
+	padding-top: 7rem;
+	padding-bottom: 7rem;
+}
+.py-24{
+	padding-top: 6rem;
+	padding-bottom: 6rem;
+}
+.py-20{
+	padding-top: 5rem;
+	padding-bottom: 5rem;
 }
 .pt-6{
 	padding-top: 1.5rem;

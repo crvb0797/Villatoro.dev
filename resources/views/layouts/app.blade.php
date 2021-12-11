@@ -36,7 +36,7 @@
 
 <body class="font-poppins antialiased">
 
-    <div class="min-h-screen bg-metalic-900">
+    <div class="min-h-screen bg-metalic-900" style="background-image: url({{ asset('./img/bg_primary.png') }})">
         @livewire('navigation-menu')
 
         <!-- Page Content -->

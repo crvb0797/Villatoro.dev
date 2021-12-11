@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container py-8">
-        <h1 class="px-2 lg:px-0 font-bold text-gray-300">{{ $post->name }}</h1>
+        <h1 class="px-2 lg:px-0 font-bold text-gray-300 mb-6">{{ $post->name }}</h1>
 
         {{-- <p class="px-2 lg:px-0 text-base md:text-lg text-gray-200 py-2">
             {!! Str::limit($post->body, 200, '...') !!}
@@ -12,7 +12,7 @@
                 <figure class="relative">
 
                     <img class="rounded-xl w-full h-80 object-cover object-center" src="  
-                          @if ($post->image) {{ Storage::url($post->image->url) }}
+                           @if ($post->image) {{ Storage::url($post->image->url) }}
 
                 @else {{ asset('./img/default.jpg') }}
 
@@ -42,7 +42,7 @@
                             <li>
                                 <a class="flex items-center" href="{{ route('blog.show', $similar) }}">
                                     <img class="w-36 h-20 object-cover object-center" src="
-                                          @if ($similar->image){{ Storage::url($similar->image->url) }}
+                                           @if ($similar->image){{ Storage::url($similar->image->url) }}
                                 @else {{ asset('./img/default.jpg') }} @endif" alt="{{ $similar->name }}">
 
                                     <span
