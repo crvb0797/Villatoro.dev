@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->longText('body');
+            $table->longText('body')->nullable();
             $table->enum('status', [Post::BORRADOR, Post::PUBLICADO])->default(Post::BORRADOR);
 
             /* LLAVES FORANEAS */

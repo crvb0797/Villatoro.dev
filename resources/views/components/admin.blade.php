@@ -61,9 +61,9 @@
                 </li>
 
                 <li class="hover:bg-yellow-500 hover:text-white">
-                    <x-jet-nav-link href="{{ route('admin.categories.index') }}"
+                    <x-jet-nav-link href="{{ route('admin.posts.index') }}"
                         class="h-16 w-16 px-6 flex justify-center items-center focus:text-orange-500"
-                        {{-- :active="request()->routeIs('admin.categories.index')" --}}>
+                        :active="request()->routeIs('admin.posts.*')">
 
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
@@ -99,14 +99,14 @@
         </aside>
         {{-- Componente de side bar --}}
 
-        <div class="container mx-auto pt-16 relative z-0">
+        <div class="container mx-auto py-16 relative z-0">
             @yield('content')
         </div>
 
         {{-- Open menu admin --}}
 
-        <button class="absolute top-36 left-0 p-3 rounded-r-lg bg-yellow-500 text-white" x-on:click="open = true"><i
-                class="fas fa-chevron-right"></i></button>
+        <button class="absolute top-36 left-0 p-3 rounded-r-lg bg-yellow-500 text-white" x-on:click="open = true"
+            @click.away="open = false"><i class="fas fa-chevron-right"></i></button>
     </div>
 
 </x-app-layout>

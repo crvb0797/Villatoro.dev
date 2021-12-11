@@ -2,16 +2,22 @@
     <div class="container py-8">
         <h1 class="px-2 lg:px-0 font-bold text-gray-300">{{ $post->name }}</h1>
 
-        <p class="px-2 lg:px-0 text-base md:text-lg text-gray-200 py-2">
+        {{-- <p class="px-2 lg:px-0 text-base md:text-lg text-gray-200 py-2">
             {!! Str::limit($post->body, 200, '...') !!}
-        </p>
+        </p> --}}
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {{-- CONTENIDO PRINCIPAL --}}
             <div class="lg:col-span-2">
                 <figure class="relative">
-                    <img class="rounded-xl w-full h-80 object-cover object-center"
-                        src="{{ Storage::url($post->image->url) }}" alt="{{ $post->name }}">
+
+                    <img class="rounded-xl w-full h-80 object-cover object-center" src="  
+                          @if ($post->image) {{ Storage::url($post->image->url) }}
+
+                @else {{ asset('./img/default.jpg') }}
+
+                    @endif
+                    " alt="{{ $post->name }}">
 
                     <div class="mb-2 absolute top-0 px-6 py-4 space-x-1">
                         @foreach ($post->tags as $tag)
@@ -35,8 +41,9 @@
                         @foreach ($similares as $similar)
                             <li>
                                 <a class="flex items-center" href="{{ route('blog.show', $similar) }}">
-                                    <img class="w-36 h-20 object-cover object-center"
-                                        src="{{ Storage::url($similar->image->url) }}" alt="{{ $similar->name }}">
+                                    <img class="w-36 h-20 object-cover object-center" src="
+                                          @if ($similar->image){{ Storage::url($similar->image->url) }}
+                                @else {{ asset('./img/default.jpg') }} @endif" alt="{{ $similar->name }}">
 
                                     <span
                                         class="ml-2 text-gray-600">{{ Str::limit($similar->name, 30, '...') }}</span>

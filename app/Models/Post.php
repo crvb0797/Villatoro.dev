@@ -12,6 +12,8 @@ class Post extends Model
     const BORRADOR = 1;
     const PUBLICADO = 2;
 
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
     /* QUERY SCOPE */
     public function scopeCategory($query, $category_id)
     {

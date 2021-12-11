@@ -82,6 +82,23 @@ h3{
     width: 45rem;
 }
 
+.form-control{
+    @apply border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full mt-2;
+}
+
+label{
+    @apply block font-medium text-sm text-gray-700 font-bold;    
+}
+
+.card{
+    @apply w-full mb-2 border rounded-lg shadow-sm bg-white p-8;
+}
+
+.image-wrapper{
+    padding-bottom: 56.25%;
+}
+
+
 @media screen and (max-width: 640px) {
     .left_container, .right_container, .container_title{
         width: auto;

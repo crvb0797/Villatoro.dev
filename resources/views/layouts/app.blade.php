@@ -15,6 +15,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
     <!-- Toaster.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -83,6 +85,20 @@
 
     {{-- TOASTR --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        @if (Session::has('info'))
+            toastr.options =
+            {
+            "closeButton": true,
+            "progressBar": true,
+            "showMethod": "slideDown",
+            "hideMethod": "slideUp",
+            "positionClass": "toast-top-right",
+            }
+            toastr.success("{{ session('info') }}");
+        
+        @endif
+    </script>
     <script>
         Livewire.on('alert', (message) => {
             toastr["success"](message)
