@@ -152,6 +152,8 @@ return [
         'body' => 'cuerpo del post',
         'password ' => 'contraseña',
         'current ' => 'contraseña actual',
+        'email ' => 'correo eléctronico',
+        'msg' => 'mensaje'
     ],
 
 ];

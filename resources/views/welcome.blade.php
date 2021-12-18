@@ -1,4 +1,16 @@
 <x-app-layout class="overflow-hidden">
+
+    @if ($errors->any())
+        <div class="bg-red-300 opacity-60 p-4 rounded-xl z-50 absolute left-4 top-20 hidden md:block">
+            <p class="text-red-500 font-bold">No llenaste todos los campos. </p>
+            @foreach ($errors->all() as $error)
+                <div class="text-red-500">
+                    {{ $error }}
+                </div>
+            @endforeach
+        </div>
+    @endif
+
     {{-- HEADER --}}
     <section id="hero" class="header md:h-screen grid grid-cols-1 md:grid-cols-3 mb-10 md:mb-0">
         {{-- presentación --}}
@@ -176,7 +188,7 @@
                         </div>
                         {{-- descripción y botón --}}
                         <div class="right_container"">
-                            <p class="      mb-4 md:text-right">Este proyecto se
+                            <p class="                                           mb-4 md:text-right">Este proyecto se
                             trabajo con las tecnologías de Laravel, Livewire y Tailwind CSS, haciendo auto administrable
                             el contenido, el proyecto fue enfocado
                             para la venta de equipo informático, para lo cual utilizamos la API de WhatsApp para cerrar
@@ -263,30 +275,43 @@
 
         {{-- Formulario de contacto --}}
         <div>
-            <form action="" class="text-white-100 space-y-6">
+            <form method="POST" action="{{ route('contact_me') }}" class="text-white-100 space-y-6">
+                @csrf
                 <div class="w-full space-y-2">
                     <label class="text-xl font-bold">Nombre</label>
-                    <input class="w-full rounded-xl" type="text">
+                    <input name="name" class="w-full rounded-xl" type="text">
+
+                    @error('name')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="w-full space-y-2">
                         <label class="text-xl font-bold">Número de teléfono</label>
-                        <input class="w-full rounded-xl" type="text">
+                        <input name="phone" class="w-full rounded-xl" type="text">
                     </div>
                     <div class="w-full space-y-2">
                         <label class="text-xl font-bold">Correo eléctronico</label>
-                        <input class="w-full rounded-xl" type="text">
+                        <input name="email" class="w-full rounded-xl" type="text">
+
+                        @error('email')
+                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="w-full space-y-2">
                     <label class="text-xl font-bold">Mensaje</label>
-                    <textarea class="w-full rounded-xl" name="" id="" cols="30" rows="10"></textarea>
+                    <textarea name="msg" class="w-full rounded-xl" name="" id="" cols="30" rows="10"></textarea>
+
+                    @error('msg')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
-                <a href="" class="btn btn-fill hover:bg-yellow-600 ransition duration-100 mt-6 block"><i
-                        class="fas fa-paper-plane mr-2"></i> Enviar</a>
+                <button type="submit" class="btn btn-fill hover:bg-yellow-600 ransition duration-100 mt-6 block"><i
+                        class="fas fa-paper-plane mr-2"></i> Enviar</button>
             </form>
         </div>
         {{-- /Formulario de contacto --}}

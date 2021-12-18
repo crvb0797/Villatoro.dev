@@ -30,3 +30,6 @@
     @apply bg-yellow-600 text-white;
   }
   
+  .btn_content:hover a{
+    color: white;
+  }
