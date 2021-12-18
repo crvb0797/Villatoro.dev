@@ -45,6 +45,15 @@
                                         <i class="fas fa-sort mt-1"></i>
                                     @endif
                                 </th>
+
+                                <th scope="col"
+                                    class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Estado del post
+                                </th>
+                                <th scope="col"
+                                    class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Categoría del post
+                                </th>
                                 <th scope="col" class="relative px-6 py-3">
                                 </th>
                             </tr>
@@ -61,13 +70,29 @@
                                             {{ $post->name }}
                                         </span>
                                     </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 text-sm mx-auto leading-5 font-semibold w-full inline-flex">
+                                            @if ($post->status == 2)
+                                                <span class="text-green-500"><i class="fas fa-check-circle mr-2"></i>
+                                                    Publicado</span>
+                                            @else
+                                                <span class="text-red-600"><i class="fas fa-times-circle mr-2"></i>
+                                                    Borrador</span>
+                                            @endif
+                                        </span>
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <p class="text-gray-700 text-sm">{{ $post->category->name }}</p>
+                                    </td>
                                     <td
                                         class="flex justify-end items-center space-x-4 px-6 py-4 mt-1 text-sm font-medium">
-                                        <a href="#" class="btn btn-blue">
+                                        <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-blue">
                                             <i class="fas fa-pen"></i>
                                         </a>
 
-                                        <a href="#" class="btn btn-red">
+                                        <a type="submit" class="btn btn-red"
+                                            wire:click="$emit('deletePost', {{ $post->id }})">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -85,35 +110,34 @@
                         <strong class="block -mt-16 mb-16">No se encontro ningun registro...</strong>
                     </div>
                 @endif
-
             </x-table>
         </div>
-
-        {{-- @push('js')
-            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script>
-                Livewire.on('deletePost', PostId => {
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Livewire.emitTo('admin.posts', 'delete', PostId);
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
-                        }
-                    })
-                })
-            </script>
-        @endpush --}}
     </div>
+
+    @push('js')
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Livewire.on('deletePost', postId => {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Livewire.emit('delete', postId);
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        </script>
+    @endpush
 
 </div>

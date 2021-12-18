@@ -27,7 +27,7 @@
         </div>
         {{-- /presentación --}}
 
-        <div class="bg-yellow-500 hidden md:block md:col-span-1 relative"
+        <div class="bg-yellow-500 bg-no-repeat bg-cover hidden md:block md:col-span-1 relative"
             style="background-image: url({{ asset('./img/bg_secondary.svg') }})">
             {{-- foto --}}
             <img data-aos="fade-left" class="foto absolute" src="{{ asset('./img/foto_secondary.jpg') }}"
@@ -38,7 +38,7 @@
     {{-- /HEADER --}}
 
     {{-- SOBRE MÍ --}}
-    <section id="about" class="grid grid-cols-1 md:grid-cols-2 bg-metalic-200 py-24 shadow-md overflow-hidden">
+    <section id="about" class="grid grid-cols-1 md:grid-cols-2 bg-metalic-200 py-12 shadow-md overflow-hidden">
         {{-- foto --}}
         <div class="relative flex justify-center items-center mb-4 md:mb-0" data-aos="fade-right">
             <img class="absolute z-0 hidden md:block" src="{{ asset('./img/lines.svg') }}" alt="lineas de decoración">
@@ -152,12 +152,11 @@
                         </div>
                         {{-- descripción y botón --}}
                         <div class="left_container">
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Autem
-                                illo soluta eos natus
-                                quibusdam a doloribus molestiae atque minus, ipsa ad, dolor nulla dolorem ipsum.
-                                Voluptatem aspernatur porro veritatis sed.</p>
-                            <a href="https://camasadomicilio.villatoro.dev"
+                            <p class="mb-4">Este proyecto esta enfocado para una venta de camas, para ello
+                                realizamos una landing page, haciendo auto administrable el contenido, trabajando con el
+                                framework Laravel y Livewire, además de utilizar Tailwind CSS y la API de Google Maps
+                                para la mostrar la ubicación del establecimiento.</p>
+                            <a href="https://camasadomicilio.com.gt" target="_blank"
                                 class="py-2 px-4 bg-yellow-500 text-white hover:bg-yellow-600 mt-4 rounded-lg text-center block mb-12 md:mb-0 md:inline-block">Visitar
                                 sitio web</a>
                         </div>
@@ -177,14 +176,11 @@
                         </div>
                         {{-- descripción y botón --}}
                         <div class="right_container"">
-                            <p class="                                     mb-4 md:text-right">Lorem ipsum dolor sit
-                            amet
-                            consectetur,
-                            adipisicing
-                            elit.
-                            Autemillo soluta eos natus quibusdam a doloribus molestiae atque minus, ipsa ad, dolor nulla
-                            dolorem ipsum.
-                            Voluptatem aspernatur porro veritatis sed.</p>
+                            <p class="      mb-4 md:text-right">Este proyecto se
+                            trabajo con las tecnologías de Laravel, Livewire y Tailwind CSS, haciendo auto administrable
+                            el contenido, el proyecto fue enfocado
+                            para la venta de equipo informático, para lo cual utilizamos la API de WhatsApp para cerrar
+                            la venta.</p>
                             <div class="flex justify-end items-center w-full">
                                 <a href="https://universalpc.villatoro.dev"
                                     class="py-2 px-4 bg-yellow-500 text-white hover:bg-yellow-600 mt-4 rounded-lg text-center block mb-12 md:mb-0 md:inline-block w-full md:w-auto"
@@ -218,10 +214,11 @@
                         </div>
                         {{-- descripción y botón --}}
                         <div class="left_container">
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem
-                                illo soluta eos natus
-                                quibusdam a doloribus molestiae atque minus, ipsa ad, dolor nulla dolorem ipsum.
-                                Voluptatem aspernatur porro veritatis sed.</p>
+                            <p class="mb-4">Este proyecto se trabajo con las tecnologías de Laravel, Livewire
+                                y Tailwind CSS, haciendo auto administrable el contenido, enfocado para la venta de
+                                equipo tanto informático como
+                                para patrocinar los servicios de la empresa, para lo cual utilizamos la API de WhatsApp
+                                para cerrar la venta.</p>
                             <a href="https://cdctech.com.gt" target="_blank"
                                 class="py-2 px-4 bg-yellow-500 text-white hover:bg-yellow-600 mt-4 rounded-lg text-center block mb-12 md:mb-0 md:inline-block">Visitar
                                 sitio web</a>

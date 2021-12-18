@@ -1,0 +1,11 @@
+.content li{
+    @apply list-inside list-disc;
+}
+
+.content p img{
+    @apply mx-auto my-4;
+}
+
+.content a{
+    @apply text-blue-600 underline;
+}

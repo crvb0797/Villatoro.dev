@@ -17,7 +17,7 @@
                 </button>
                 <!-- Dropdown Body -->
                 <div x-on:click.away="open = false"
-                    class="absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl" x-show="open">
+                    class="absolute z-50 right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl" x-show="open">
                     @foreach ($categories as $category)
                         <a wire:click="$set('category_id', {{ $category->id }})" x-on:click="open = false"
                             class="cursor-pointer transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-yellow-500 hover:text-white">{{ $category->name }}</a>
@@ -36,9 +36,9 @@
     <div class="container py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($posts as $post)
-                <article class="w-full h-80 bg-cover bg-center @if ($loop->first) col-span-1 md:col-span-2 @endif"
+                <article class="w-full h-80 bg-cover bg-center z-0 @if ($loop->first) col-span-1 md:col-span-2 @endif"
                     style="background-image: url(@if ($post->image) {{ Storage::url($post->image->url) }} @else {{ asset('./img/default.jpg') }} @endif)">
-                    <div class="w-full h-full px-8 flex flex-col justify-center">
+                    <div class="w-full h-full px-8 flex flex-col justify-center relative">
                         {{-- <ul class="hidden">
                             <li class="bg-red-custom"></li>
                             <li class="bg-blue-custom"></li>
@@ -61,6 +61,18 @@
                         <h2 class="text-white leading-8 font-bold">
                             <a href="{{ route('blog.show', $post) }}">{{ $post->name }}</a>
                         </h2>
+
+                        <div class="absolute bottom-2 left-4 px-2 py-2 bg-metalic-900 rounded-xl">
+                            <div class="flex items-center">
+                                <img class="rounded-full h-8 w-8 object-cover shadow-xl border-2 border-yellow-500"
+                                    src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}">
+                                <p class="font-semibold text-white text-sm ml-2">{{ $post->user->name }}</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute top-2 right-4 ">
+                            <span class="text-metalic-100">{{ $post->created_at->diffForHumans() }}</span>
+                        </div>
                     </div>
                 </article>
             @endforeach

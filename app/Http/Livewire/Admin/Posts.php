@@ -3,15 +3,15 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class Posts extends Component
 {
     use WithPagination;
-    public $name;
+
     public $search = '';
-    public $open_edit = false;
     public $sort = "id";
     public $direction = "desc";
     public $readyToLoad = false;
@@ -28,16 +28,15 @@ class Posts extends Component
     ];
 
 
-
     public function mount()
     {
 
         $this->post = new Post();
     }
 
-    public function delete(Post $post)
+    public function delete($post)
     {
-        $post->delete();
+        Post::destroy($post);
     }
 
     public function updatingSearch()
@@ -78,23 +77,5 @@ class Posts extends Component
             $this->sort = $sort;
             $this->direction = 'asc';
         }
-    }
-
-    /* EDITAR UN POST */
-    public function edit(Post $post)
-    {
-        $this->post = $post;
-        $this->open_edit = true;
-    }
-    public function update()
-    {
-        /* CON ESTO LOGRAMOS HACER LAS VALIDACIONES, LEE LA PROPIEDAD RULES */
-        $this->validate();
-
-        $this->post->save();
-
-        $this->reset(['open_edit']);
-
-        $this->emit('alert', 'La categoría se actualizo con éxito 🚀');
     }
 }

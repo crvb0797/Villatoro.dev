@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use Illuminate\Http\Request;
-use App\Http\Requests\PostRequets;
+use App\Http\Requests\PostRequests;
 use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
@@ -40,7 +39,7 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequets $request)
+    public function store(PostRequests $request)
     {
         /* return Storage::put('posts', $request->file('file')); */
 
@@ -62,17 +61,6 @@ class PostsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PostRequets $request, Post $post)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -80,7 +68,9 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::pluck('name', 'id');
+        $tags = Tag::all();
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -90,19 +80,28 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequests $request, Post $post)
     {
-        //
-    }
+        $post->update($request->all());
+        if ($request->file('file')) {
+            $url = Storage::put('posts', $request->file('file'));
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Post $post)
-    {
-        //
+            if ($post->image) {
+                Storage::delete($post->image->url);
+                $post->image->update([
+                    'url' => $url
+                ]);
+            } else {
+                $post->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+
+        if ($request->tags) {
+            $post->tags()->sync($request->tags);
+        }
+
+        return redirect()->route('admin.posts.edit', $post)->with('info', 'El post se actualizó con éxito 😎');
     }
 }
