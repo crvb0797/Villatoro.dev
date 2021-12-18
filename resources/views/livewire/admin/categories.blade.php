@@ -8,8 +8,11 @@
                 <x-jet-input class="flex-1 mx-4" placeholder="Ingrese el nombre a buscar..." type="text"
                     wire:model="search" />
 
-                {{-- CREAR POST --}}
-                @livewire('admin.create-category')
+                @can('admin.categories.create')
+                    {{-- CREAR POST --}}
+                    @livewire('admin.create-category')
+                @endcan
+
             </div>
             @if (count($categories))
                 <table class="w-full divide-y divide-gray-200 overflow-hidden rounded-lg">

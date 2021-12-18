@@ -8,8 +8,10 @@
                 <x-jet-input class="flex-1 mx-4" placeholder="Ingrese la etiqueta a buscar..." type="text"
                     wire:model="search" />
 
-                {{-- CREAR POST --}}
-                @livewire('admin.create-tag')
+                @can('admin.categories.create')
+                    {{-- CREAR POST --}}
+                    @livewire('admin.create-tag')
+                @endcan
             </div>
             @if (count($tags))
                 <table class="w-full divide-y divide-gray-200 overflow-hidden rounded-lg">
