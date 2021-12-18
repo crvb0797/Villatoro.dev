@@ -68,6 +68,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('author', $post);
         $categories = Category::pluck('name', 'id');
         $tags = Tag::all();
         return view('admin.posts.edit', compact('post', 'categories', 'tags'));
@@ -83,6 +84,9 @@ class PostsController extends Controller
     public function update(PostRequests $request, Post $post)
     {
         $post->update($request->all());
+
+        $this->authorize('author', $post);
+
         if ($request->file('file')) {
             $url = Storage::put('posts', $request->file('file'));
 

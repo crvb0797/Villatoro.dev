@@ -59,16 +59,22 @@
                                         {{ $category->name }}
                                     </span>
                                 </td>
-                                <td class="flex justify-end items-center space-x-4 px-6 py-4 mt-1 text-sm font-medium">
-                                    <button class="btn btn-blue" wire:click="edit({{ $category }})">
-                                        <i class="fas fa-pen"></i>
-                                    </button>
 
-                                    <button wire:click="$emit('deleteCategory', {{ $category->id }})"
-                                        class="btn btn-red">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                <td class="flex justify-end items-center space-x-4 px-6 py-4 mt-1 text-sm font-medium">
+                                    @can('admin.categories.edit')
+                                        <button class="btn btn-blue" wire:click="edit({{ $category }})">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+                                    @endcan
+
+                                    @can('admin.categories.delete')
+                                        <button wire:click="$emit('deleteCategory', {{ $category->id }})"
+                                            class="btn btn-red">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    @endcan
                                 </td>
+
                             </tr>
                         @endforeach
                     </tbody>

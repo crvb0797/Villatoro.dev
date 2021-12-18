@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class CategorieController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:admin.categories.index');
+    }
     /**
      * Display a listing of the resource.
      *

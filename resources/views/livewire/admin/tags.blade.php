@@ -80,13 +80,17 @@
                                     </span>
                                 </td>
                                 <td class="flex justify-end items-center space-x-4 px-6 py-4 mt-1 text-sm font-medium">
-                                    <button class="btn btn-blue" wire:click="edit({{ $tag }})">
-                                        <i class="fas fa-pen"></i>
-                                    </button>
+                                    @can('admin.tags.edit')
+                                        <button class="btn btn-blue" wire:click="edit({{ $tag }})">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+                                    @endcan
 
-                                    <button wire:click="$emit('deleteTag', {{ $tag->id }})" class="btn btn-red">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                    @can('admin.tags.delete')
+                                        <button wire:click="$emit('deleteTag', {{ $tag->id }})" class="btn btn-red">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach

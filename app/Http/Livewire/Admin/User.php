@@ -2,51 +2,21 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Post;
-use Illuminate\Support\Facades\Storage;
+use App\Models\User as ModelsUser;
 use Livewire\Component;
-use Livewire\WithPagination;
 
-class Posts extends Component
+class User extends Component
 {
-    use WithPagination;
-
     public $search = '';
     public $sort = "id";
     public $direction = "desc";
     public $readyToLoad = false;
 
-    /* OYENTE DEL EVENTO EMITIDO */
-    protected $listeners = ['render', 'delete'];
-
     protected $queryString = [
         'search' => ['except' => ""]
     ];
 
-    protected $rules = [
-        'post.name' => 'required',
-    ];
-
-
-    public function mount()
-    {
-
-        $this->post = new Post();
-    }
-
-    public function delete($post)
-    {
-        $this->authorize('author', $post);
-
-        Post::destroy($post);
-    }
-
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
-
-    public function loadPost()
+    public function loadUser()
     {
         $this->readyToLoad = true;
     }
@@ -54,18 +24,14 @@ class Posts extends Component
     public function render()
     {
         if ($this->readyToLoad) {
-            $posts = Post::where('user_id', auth()->user()->id)
-                ->where('name', 'LIKE', '%' . $this->search . '%')
+            $users = ModelsUser::where('name', 'LIKE', '%' . $this->search . '%')
                 ->orderBy($this->sort, $this->direction)
-                ->paginate(8);
+                ->paginate();
         } else {
-            $posts = [];
+            $users = [];
         }
-
-        return view('livewire.admin.posts', compact('posts'));
+        return view('livewire.admin.user', compact('users'));
     }
-
-
 
     /* AQUÍ HACEMOS EL FILTRADO POR CAMPO */
     public function order($sort)
