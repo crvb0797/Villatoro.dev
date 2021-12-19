@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+
     {{-- AOS --}}
     <link rel="stylesheet" href="{{ asset('./vendor/aos-master/dist/aos.css') }}">
     <script src="{{ asset('./vendor/aos-master/dist/aos.js') }}"></script>
